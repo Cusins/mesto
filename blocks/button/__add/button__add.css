@@ -1,0 +1,9 @@
+.button__add {
+  margin-left: auto;
+  max-height: 50px;
+  max-width: 150px;
+  box-sizing: border-box;
+  border: 2px solid #fff;
+  border-radius: 2px;
+  padding: 14px 64px;
+}
