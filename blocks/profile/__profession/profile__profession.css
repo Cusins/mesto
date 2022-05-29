@@ -4,3 +4,18 @@
   font-size: 18px;
   line-height: 22px;
 }
+
+@media (max-width: 768px) {
+  .profile__profession {
+    width: max-content;
+    margin: 16px auto 36px;
+  }
+}
+
+
+@media (max-width: 425px) {
+  .profile__profession {
+    font-size: 14px;
+    line-height: 17px;
+  }
+}

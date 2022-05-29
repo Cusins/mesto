@@ -1,6 +1,13 @@
 .profile {
-  padding: 62px 0 76px;
+  padding: 40px 0 51px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
+}
+
+@media (max-width: 768px) {
+  .profile {
+    display: block;
+    padding: 42px 0 36px;
+  }
 }

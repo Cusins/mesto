@@ -1,3 +1,9 @@
 .profile__head {
   display: flex;
 }
+
+@media (max-width: 768px) {
+  .profile__head {
+    justify-content: center;
+  }
+}

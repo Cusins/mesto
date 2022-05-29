@@ -1,5 +1,11 @@
 .elements__card {
   font-size: 0;
-  border-radius: 30px;
+  border-radius: 10px;
   overflow: hidden;
 }
+
+/* @media (max-width: 1023px) {
+  .elements__card {
+   max-width: ;
+  }
+} */

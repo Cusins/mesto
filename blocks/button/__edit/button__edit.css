@@ -5,3 +5,12 @@
   padding: 7px;
   margin-top: 16px;
 }
+
+@media (max-width: 425px) {
+  .button__edit {
+    max-height: 18px;
+    max-width: 18px;
+    padding: 5.25px;
+    margin-top: 10px;
+  }
+}

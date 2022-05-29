@@ -2,4 +2,9 @@
   max-width: 22px;
   max-height: 19px;
   margin-left: 32px;
+  cursor: pointer;
+}
+
+.elements__like:hover {
+  opacity: .5;
 }

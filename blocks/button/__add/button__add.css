@@ -1,9 +1,22 @@
 .button__add {
   margin-left: auto;
-  max-height: 50px;
-  max-width: 150px;
+  height: 50px;
+  width: 150px;
   box-sizing: border-box;
   border: 2px solid #fff;
   border-radius: 2px;
   padding: 14px 64px;
+}
+
+@media (max-width: 768px) {
+  .button__add {
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 425px) {
+  .button__add {
+    /* display: block; */
+    width: 100%;
+}
 }
