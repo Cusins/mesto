@@ -1,4 +1,5 @@
 .elements__description {
+  max-width: 246px;
   display: flex;
   align-items: center;
   justify-content: space-between;
