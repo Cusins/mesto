@@ -5,7 +5,8 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  background-color: black;
+  background-color: #111;
+  color: #fff;
   cursor: pointer;
   transition: .4s;
 }
