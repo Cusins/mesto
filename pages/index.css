@@ -25,125 +25,22 @@
 @import url(../blocks/elements/__like/elements__like.css);
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__info/footer__info.css);
-
-/* .popup {
-  display: none;
-} */
-
-.popup__opened {
-  width: 100vw;
-  height: 100vh;
-  position: fixed;
-  left: 0;
-  top: 0;
-  background-color: rgba(0, 0, 0, .5);
-  z-index: 2;
-  display: flex;
-}
-
-.popup__container {
-  margin: auto;
-  background-color: #fff;
-  color: #000;
-  border-radius: 10px;
-  max-width: 430px;
-  padding: 33px 36px 36px;
-  position: relative;
-}
-
-@media (max-width: 600px) {
-  .popup__container {
-    max-width: 282px;
-    padding: 25px 22px;
-  }
-}
+@import url(../blocks/popup/popup.css);
+@import url(../blocks/popup/_opened/popup_opened.css);
+@import url(../blocks/popup/__container/popup__container.css);
+@import url(../blocks/popup/__button-close/popup__button-close.css);
+@import url(../blocks/popup/__head/popup__head.css);
+@import url(../blocks/popup/__form/popup__form.css);
+@import url(../blocks/popup/__input/popup__input.css);
+@import url(../blocks/popup/__button-save/popup__button-save.css);
 
 
-.popup__button-close {
-  position: absolute;
-  top: -40px;
-  right: -40px;
-  width: 32px;
-  height: 32px;
-  border: 0;
-  background-color: transparent;
-  background-image: url(../images/close_icon.svg);
-  background-size: cover;
-}
 
-@media (max-width: 600px) {
-  .popup__button-close {
-    top: -36px;
-    right: 0;
-    width: 20px;
-    height: 20px;
-    background-image: url(../images/close_icon.svg);
-    background-size: contain;
-  }
-}
 
-.popup__head {
-  margin: 0;
-  padding: 0 0 50px;
-  font-weight: 900;
-  font-size: 24px;
-  line-height: 29px;
-}
 
-@media (max-width: 600px) {
-  .popup__head {
-    padding: 0 0 71px;
-    font-size: 18px;
-    line-height: 22px;
-  }
-}
 
-.popup__form {
-  max-width: 358px;
-}
 
-@media (max-width: 600px) {
-  .popup__form {
-    max-width: 238px;
-  }
-}
 
-.popup__input {
-  width: 100%;
-  font-weight: 400;
-  font-size: 14px;
-  height: 27px;
-  line-height: 17px;
-  border: 0;
-  border-bottom: 1px solid rgba(0, 0, 0, .2);
-  margin-bottom: 30px;
-  box-sizing: border-box;
-}
 
-@media (max-width: 600px) {
-
-}
-
-.popup__button-save {
-  margin-top: 18px;
-  height: 50px;
-  width: 100%;
-  box-sizing: border-box;
-  border: 0;
-  border-radius: 2px;
-  padding: 14px 0 18px;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 22px;
-}
-
-@media (max-width: 600px) {
-  .popup__button-save {
-    margin-top: 15px;
-    font-size: 14px;
-    line-height: 17px;
-    padding: 14px 0;
-  }
-}
 
 
