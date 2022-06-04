@@ -1,4 +1,4 @@
-.button__add {
+.profile__add {
   margin-left: auto;
   height: 50px;
   width: 150px;
@@ -9,13 +9,13 @@
 }
 
 @media (max-width: 768px) {
-  .button__add {
+  .profile__add {
     margin: 0 auto;
   }
 }
 
 @media (max-width: 425px) {
-  .button__add {
+  .profile__add {
     /* display: block; */
     width: 100%;
 }

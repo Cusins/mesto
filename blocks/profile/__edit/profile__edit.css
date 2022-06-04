@@ -1,4 +1,4 @@
-.button__edit {
+.profile__edit {
   max-height: 24px;
   max-width: 24px;
   border: 1px solid #fff;
@@ -7,7 +7,7 @@
 }
 
 @media (max-width: 425px) {
-  .button__edit {
+  .profile__edit {
     max-height: 18px;
     max-width: 18px;
     padding: 5.25px;
