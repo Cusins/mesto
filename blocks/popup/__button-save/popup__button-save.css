@@ -11,6 +11,10 @@
   line-height: 22px;
 }
 
+.popup__button-save:hover {
+  opacity: .8;
+}
+
 @media (max-width: 600px) {
   .popup__button-save {
     margin-top: 15px;

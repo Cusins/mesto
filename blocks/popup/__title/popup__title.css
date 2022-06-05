@@ -1,4 +1,4 @@
-.popup__head {
+.popup__title {
   margin: 0;
   padding: 0 0 50px;
   font-weight: 900;
@@ -7,7 +7,7 @@
 }
 
 @media (max-width: 600px) {
-  .popup__head {
+  .popup__title {
     padding: 0 0 71px;
     font-size: 18px;
     line-height: 22px;

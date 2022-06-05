@@ -3,10 +3,15 @@
   font-weight: 400;
   font-size: 18px;
   line-height: 22px;
+  max-width: 360px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 @media (max-width: 768px) {
   .profile__profession {
+    max-width: 200px;
     width: max-content;
     margin: 16px auto 36px;
   }
@@ -17,5 +22,6 @@
   .profile__profession {
     font-size: 14px;
     line-height: 17px;
+    margin-top: 14px;
   }
 }
