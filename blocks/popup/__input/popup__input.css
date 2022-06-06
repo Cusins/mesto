@@ -1,4 +1,6 @@
 .popup__input {
+  outline: none;
+  background-color: transparent;
   width: 100%;
   font-weight: 400;
   font-size: 14px;
@@ -8,8 +10,4 @@
   border-bottom: 1px solid rgba(0, 0, 0, .2);
   margin-bottom: 30px;
   box-sizing: border-box;
-}
-
-.popup__input:focus {
-  outline: none;
 }
