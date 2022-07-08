@@ -25,8 +25,6 @@ const pictureImage = document.querySelector('.popup__image');
 const pictureName = document.querySelector('.popup__description');
 const pictureButtonClose = picturePopup.querySelector('.popup__button-close_type_image');
 
-
-
 //добавим элементы из массивов
 initialCards.forEach(function (item) {
   elementsList.append(createElement(item.name, item.link));
@@ -61,10 +59,12 @@ function createElement(pictureTitle, pictureLink) {
 
 function popupOpen(allPopups) {
   allPopups.classList.add('popup_opened');
+  document.addEventListener('keydown', popupCloseEsc);
 }
 
 function popupClose(allPopups) {
   allPopups.classList.remove('popup_opened');
+  document.removeEventListener('keydown', popupCloseEsc);
 }
 
 //форма профиля
@@ -82,34 +82,73 @@ function formSubmitHandlerElement(evt) {
   popupClose(elementPopup);
 }
 
-
-
-//кнопки закрытия
-pictureButtonClose.addEventListener('click', function () {
-  popupClose(picturePopup);
-});
-
-profileButtonClose.addEventListener('click', function () {
-  popupClose(profilePopup);
-});
-
-elementButtonClose.addEventListener('click', function () {
-  popupClose(elementPopup);
-});
-
-
 // Изменить профайл
 profileButtonEdit.addEventListener('click', function () {
+
+  profilePopup.querySelector('.popup__form').reset();
+
   nameInput.value = profileName.textContent;
   professionInput.value = profileProfesseion.textContent;
-  popupOpen(profilePopup);
+  updateSaveButtonStatus(profilePopup);
+  updateInputErrorStatus(profilePopup);
+
+  popupOpen(profilePopup)
 });
 
+
+//добавить element
 profileButtonAdd.addEventListener('click', function () {
+
+  elementPopup.querySelector('.popup__form').reset();
+  updateSaveButtonStatus(elementPopup);
+  updateInputErrorStatus(elementPopup);
+
   popupOpen(elementPopup);
 });
 
+// закрыть на esc
+const popupCloseEsc = (evt) => {
+  allPopups = document.querySelector('.popup_opened');
+  if (evt.code === "Escape") {
+    popupClose(allPopups);
+  }
+}
 
-//события при клике на кнопки Сохранить и Создать
+const setEventListenersPopup = () => {
+  const popupList = Array.from(document.querySelectorAll('.popup'));
+
+  popupList.forEach((popupElement) => {
+
+    popupElement.addEventListener('mousedown', function (evt) {
+      if (evt.target === evt.currentTarget) {
+        popupClose(popupElement);
+      }
+    });
+
+    //закрыть
+    popupElement.querySelector('.popup__button-close').addEventListener('click', function () {
+      popupClose(popupElement);
+    });
+  });
+}
+
+const updateInputErrorStatus = (allPopups) => {
+  const formElement = allPopups.querySelector(config.formSelector);
+  const inputList = Array.from(formElement.querySelectorAll(config.inputSelector));
+  inputList.forEach((inputElement) => {
+    hideInputError(formElement, inputElement);
+  });
+}
+
+const updateSaveButtonStatus = (allPopups) => {
+  const buttonElement = allPopups.querySelector(config.submitButtonSelector);
+  const inputList = Array.from(allPopups.querySelectorAll(config.inputSelector));
+  toggleButtonState(inputList, buttonElement);
+}
+
+
+
+setEventListenersPopup();
+enableValidation(config);
 profileForm.addEventListener('submit', formSubmitHandlerProfile);
 elementForm.addEventListener('submit', formSubmitHandlerElement);

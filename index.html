@@ -45,10 +45,15 @@
     <div class="popup__container">
       <button class="button popup__button-close popup__button-close_type_profile" type="button"></button>
       <h3 class="popup__title">Редактировать профиль</h3>
-      <form class="popup__form popup__form-profile">
-        <input class="popup__input popup__input_type_name" type="text" placeholder="Введите имя" name="input-name" required>
-        <input class="popup__input popup__input_type_profession" type="text" placeholder="Расскажите о себе"
-          name="input-profession" required>
+      <form class="popup__form popup__form-profile" novalidate>
+        <label class="popup__label">
+          <input id="name-input" class="popup__input popup__input_type_name" type="text" placeholder="Введите имя" name="input-name" minlength="2" maxlength="40" required>
+          <span class="name-input-error popup__input-error"></span>
+        </label>
+        <label class="popup__label">
+          <input id="profession-input" class="popup__input popup__input_type_profession" type="text" placeholder="Расскажите о себе" name="input-profession" minlength="2" maxlength="200" required>
+          <span class="profession-input-error popup__input-error"></span>
+        </label>
         <button class="button popup__button-save popup__button-save_type_profile" type="submit">Сохранить</button>
       </form>
     </div>
@@ -58,10 +63,15 @@
     <div class="popup__container">
       <button class="button popup__button-close popup__button-close_type_element" type="button"></button>
       <h3 class="popup__title">Новое место</h3>
-      <form class="popup__form popup__form-element">
-        <input class="popup__input popup__input_type_city" type="text" placeholder="Введите город" name="input-city" required>
-        <input class="popup__input popup__input_type_url" type="url" placeholder="Введите ссылку"
-          name="input-url" required>
+      <form class="popup__form popup__form-element" novalidate>
+        <label class="popup__label">
+          <input id="city-input" class="popup__input popup__input_type_city" type="text" placeholder="Введите город" name="input-city" minlength="2" maxlength="30" required>
+          <span class="city-input-error popup__input-error"></span>
+        </label>
+        <label class="popup__label">
+          <input id="url-input" class="popup__input popup__input_type_url" type="url" placeholder="Введите ссылку" name="input-url" required>
+           <span class="url-input-error popup__input-error"></span>
+        </label>
         <button class="button popup__button-save popup__button-save_type_element" type="submit">Создать</button>
       </form>
     </div>
@@ -87,7 +97,9 @@
   </template>
 
   <script src="./script/initialCards.js"></script>
+  <script src="./script/validate.js"></script>
   <script src="./script/index.js"></script>
+
 </body>
 
 </html>
