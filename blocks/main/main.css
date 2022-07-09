@@ -1,6 +1,7 @@
 .main {
   max-width: 880px;
   margin: 0 auto;
+  min-height: calc(100vh - 298px);
 }
 
 @media (max-width: 1023px) {
@@ -8,3 +9,16 @@
     padding: 0 19px;
   }
 }
+
+@media (max-width: 768px) {
+  .main {
+    min-height: calc(100vh - 212px);
+  }
+}
+
+@media (max-width: 424px) {
+  .main {
+    min-height: calc(100vh - 202px);
+  }
+}
+

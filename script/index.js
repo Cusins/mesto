@@ -57,18 +57,25 @@ function createElement(pictureTitle, pictureLink) {
   return newElement;
 }
 
-function popupOpen(allPopups) {
-  allPopups.classList.add('popup_opened');
+function popupOpen(popup) {
+  popup.classList.add('popup_opened');
   document.addEventListener('keydown', popupCloseEsc);
 }
 
-function popupClose(allPopups) {
-  allPopups.classList.remove('popup_opened');
+function popupClose(popup) {
+  popup.classList.remove('popup_opened');
   document.removeEventListener('keydown', popupCloseEsc);
 }
 
+function popupCloseEsc(evt) {
+  if (evt.code === 'Escape') {
+    const esc = document.querySelector('.popup_opened');
+    popupClose(esc);
+  }
+}
+
 //форма профиля
-function formSubmitHandlerProfile(evt) {
+function submitFormHandlerProfile(evt) {
   evt.preventDefault();
   profileName.textContent = nameInput.value;
   profileProfesseion.textContent = professionInput.value;
@@ -76,7 +83,7 @@ function formSubmitHandlerProfile(evt) {
 }
 
 //форма elements
-function formSubmitHandlerElement(evt) {
+function submitFormHandlerElement(evt) {
   evt.preventDefault();
   elementsList.prepend(createElement(cityInput.value, urlInput.value));
   popupClose(elementPopup);
@@ -84,8 +91,6 @@ function formSubmitHandlerElement(evt) {
 
 // Изменить профайл
 profileButtonEdit.addEventListener('click', function () {
-
-  profilePopup.querySelector('.popup__form').reset();
 
   nameInput.value = profileName.textContent;
   professionInput.value = profileProfesseion.textContent;
@@ -99,20 +104,13 @@ profileButtonEdit.addEventListener('click', function () {
 //добавить element
 profileButtonAdd.addEventListener('click', function () {
 
-  elementPopup.querySelector('.popup__form').reset();
+  cityInput.value = '';
+  urlInput.value = '';
   updateSaveButtonStatus(elementPopup);
   updateInputErrorStatus(elementPopup);
 
   popupOpen(elementPopup);
 });
-
-// закрыть на esc
-const popupCloseEsc = (evt) => {
-  allPopups = document.querySelector('.popup_opened');
-  if (evt.code === "Escape") {
-    popupClose(allPopups);
-  }
-}
 
 const setEventListenersPopup = () => {
   const popupList = Array.from(document.querySelectorAll('.popup'));
@@ -132,23 +130,7 @@ const setEventListenersPopup = () => {
   });
 }
 
-const updateInputErrorStatus = (allPopups) => {
-  const formElement = allPopups.querySelector(config.formSelector);
-  const inputList = Array.from(formElement.querySelectorAll(config.inputSelector));
-  inputList.forEach((inputElement) => {
-    hideInputError(formElement, inputElement);
-  });
-}
-
-const updateSaveButtonStatus = (allPopups) => {
-  const buttonElement = allPopups.querySelector(config.submitButtonSelector);
-  const inputList = Array.from(allPopups.querySelectorAll(config.inputSelector));
-  toggleButtonState(inputList, buttonElement);
-}
-
-
-
 setEventListenersPopup();
 enableValidation(config);
-profileForm.addEventListener('submit', formSubmitHandlerProfile);
-elementForm.addEventListener('submit', formSubmitHandlerElement);
+profileForm.addEventListener('submit', submitFormHandlerProfile);
+elementForm.addEventListener('submit', submitFormHandlerElement);

@@ -33,10 +33,10 @@ const hasInvalidInput = (inputList) => {
 
 const toggleButtonState = (inputList, buttonElement) => {
   if (hasInvalidInput(inputList)) {
-    buttonElement.classList.add('popup__button-save_disabled');
+    buttonElement.classList.add(config.inactiveButtonClass);
     buttonElement.setAttribute('disabled', 'disabled')
   } else {
-    buttonElement.classList.remove('popup__button-save_disabled');
+    buttonElement.classList.remove(config.inactiveButtonClass);
     buttonElement.removeAttribute('disabled')
   }
 };
@@ -61,5 +61,19 @@ const enableValidation = (config) => {
     setEventListeners(formElement);
   });
 };
+
+const updateInputErrorStatus = (allPopups) => {
+  const formElement = allPopups.querySelector(config.formSelector);
+  const inputList = Array.from(formElement.querySelectorAll(config.inputSelector));
+  inputList.forEach((inputElement) => {
+    hideInputError(formElement, inputElement);
+  });
+}
+
+const updateSaveButtonStatus = (allPopups) => {
+  const buttonElement = allPopups.querySelector(config.submitButtonSelector);
+  const inputList = Array.from(allPopups.querySelectorAll(config.inputSelector));
+  toggleButtonState(inputList, buttonElement);
+}
 
 
