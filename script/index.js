@@ -37,8 +37,6 @@ const initialCards = [
   },
 ];
 
-// константы для работы с массивом initialCards
-const elementsCard = document.querySelector("#template").content;
 const elementsList = document.querySelector(".elements__list");
 
 // константы попапов
@@ -53,15 +51,11 @@ const profileButtonClose = document.querySelector(
   ".popup__button-close_type_profile"
 );
 const profileButtonAdd = document.querySelector(".profile__button-add");
-// const elementButtonClose = document.querySelector(
-//   ".popup__button-close_type_element"
-// );
+
 const elementPopup = document.querySelector(".popup_type_add-element");
 const elementForm = document.querySelector(".popup__form-element");
 const cityInput = document.querySelector(".popup__input_type_city");
 const urlInput = document.querySelector(".popup__input_type_url");
-// const elementName = document.querySelector(".elements__title");
-// const elementLink = document.querySelector(".elements__image");
 
 export const picturePopup = document.querySelector(".popup_type_image");
 
@@ -104,8 +98,6 @@ profileButtonEdit.addEventListener("click", () => {
   profileFormValidator.enableValidation();
   nameInput.value = profileName.textContent;
   professionInput.value = profileProfesseion.textContent;
-  // updateSaveButtonStatus(profilePopup);
-  // updateInputErrorStatus(profilePopup);
 
   popupOpen(profilePopup);
 });
@@ -115,8 +107,6 @@ profileButtonAdd.addEventListener("click", () => {
   elementFormValidator.enableValidation();
   cityInput.value = "";
   urlInput.value = "";
-  // updateSaveButtonStatus(elementPopup);
-  // updateInputErrorStatus(elementPopup);
 
   popupOpen(elementPopup);
 });
@@ -141,9 +131,6 @@ const setEventListenersPopup = () => {
 };
 
 setEventListenersPopup();
-// const elementFormValidator = new FormValidator(config, elementForm);
-// const profileFormValidator = new FormValidator(config, elementForm);
-// elementFormValidator.enableValidation();
 
 profileForm.addEventListener("submit", submitFormHandlerProfile);
 elementForm.addEventListener("submit", submitFormHandlerElement);

@@ -25,9 +25,6 @@ export class Card {
         this._handleClickImage();
       });
 
-    // newElement.querySelector('.elements__button-like').addEventListener('click', function(evt) {
-    //   evt.target.classList.toggle('elements__button-like-active');
-    // });
     this._element
       .querySelector(".elements__button-like")
       .addEventListener("click", (evt) => {
@@ -39,12 +36,6 @@ export class Card {
       .addEventListener("click", (evt) => {
         this._handleClickDelete(evt);
       });
-
-    //     newElement
-    //     .querySelector(".elements__button-delete")
-    //     .addEventListener("click", function (evt) {
-    //       evt.target.closest(".elements__card").remove();
-    //     });
   }
 
   _handleClickImage() {
