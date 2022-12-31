@@ -1,6 +1,4 @@
-const pictureImage = document.querySelector(".popup__image");
-const pictureName = document.querySelector(".popup__description");
-import { picturePopup, popupOpen } from "./index.js";
+import { picturePopup, pictureImage, pictureName, popupOpen } from "./index.js";
 
 export class Card {
   constructor(link, name, templateSelector) {
@@ -16,14 +14,13 @@ export class Card {
       .cloneNode(true);
 
     this._element = messageElement;
+    this._image = this._element.querySelector(".elements__image");
   }
 
   _setEventListeners() {
-    this._element
-      .querySelector(".elements__image")
-      .addEventListener("click", () => {
-        this._handleClickImage();
-      });
+    this._image.addEventListener("click", () => {
+      this._handleClickImage();
+    });
 
     this._element
       .querySelector(".elements__button-like")
@@ -51,13 +48,15 @@ export class Card {
 
   _handleClickDelete(evt) {
     evt.target.closest(".elements__card").remove();
+    this._element = null;
   }
 
   generate() {
     this._getElement();
     this._setEventListeners();
     this._element.querySelector(".elements__title").textContent = this._name;
-    this._element.querySelector(".elements__image").src = this._link;
+    this._image.src = this._link;
+    this._image.alt = this._name;
     return this._element;
   }
 }

@@ -1,41 +1,6 @@
+import { config, initialCards } from "./constants.js";
 import { Card } from "./Card.js";
 import { FormValidator } from "./FormValidator.js";
-
-const config = {
-  formSelector: ".popup__form",
-  inputSelector: ".popup__input",
-  submitButtonSelector: ".popup__button-save",
-  inactiveButtonClass: "popup__button-save_disabled",
-  inputErrorClass: "popup__input_type_error",
-  errorClass: "popup__input-error",
-};
-
-const initialCards = [
-  {
-    name: "Архыз",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg",
-  },
-  {
-    name: "Челябинская область",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg",
-  },
-  {
-    name: "Иваново",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg",
-  },
-  {
-    name: "Камчатка",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg",
-  },
-  {
-    name: "Холмогорский район",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg",
-  },
-  {
-    name: "Байкал",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg",
-  },
-];
 
 const elementsList = document.querySelector(".elements__list");
 
@@ -47,9 +12,6 @@ const professionInput = document.querySelector(".popup__input_type_profession");
 const profileName = document.querySelector(".profile__name");
 const profileProfesseion = document.querySelector(".profile__profession");
 const profileButtonEdit = document.querySelector(".profile__button-edit");
-const profileButtonClose = document.querySelector(
-  ".popup__button-close_type_profile"
-);
 const profileButtonAdd = document.querySelector(".profile__button-add");
 
 const elementPopup = document.querySelector(".popup_type_add-element");
@@ -58,6 +20,8 @@ const cityInput = document.querySelector(".popup__input_type_city");
 const urlInput = document.querySelector(".popup__input_type_url");
 
 export const picturePopup = document.querySelector(".popup_type_image");
+export const pictureImage = document.querySelector(".popup__image");
+export const pictureName = document.querySelector(".popup__description");
 
 export function popupOpen(popup) {
   popup.classList.add("popup_opened");
@@ -87,10 +51,15 @@ function submitFormHandlerProfile(evt) {
 //форма elements
 function submitFormHandlerElement(evt) {
   evt.preventDefault();
-  const card = new Card(urlInput.value, cityInput.value, "#template");
-  const cardElement = card.generate();
+
+  const cardElement = createCard(urlInput.value, cityInput.value);
   elementsList.prepend(cardElement);
   popupClose(elementPopup);
+}
+
+function createCard(link, name) {
+  const card = new Card(link, name, "#template");
+  return card.generate();
 }
 
 // Изменить профайл
@@ -139,7 +108,6 @@ const elementFormValidator = new FormValidator(config, elementForm);
 const profileFormValidator = new FormValidator(config, profileForm);
 
 initialCards.forEach((item) => {
-  const card = new Card(item.link, item.name, "#template");
-  const cardElement = card.generate();
+  const cardElement = createCard(item.link, item.name);
   elementsList.append(cardElement);
 });
